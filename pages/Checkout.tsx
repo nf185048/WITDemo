@@ -65,8 +65,23 @@ const calculatePrice = () => {
   let sum = 0
 
   itemsToCheckout.forEach(item => {
-    sum = item.price
+    sum = sum + item.price
   })
+
+  /**
+   * sum = 0
+   * item.price (1) = 6.85
+   * 
+   * sum = 6.85
+   * 
+   * 
+   * sum = 6.85
+   * item.price (2) = 4.35
+   * 
+   * sum = sum + 4.35 = 6.85 + 4.35 = 11.20
+   * 
+   * sum = sum + price 
+   */
 
   return sum.toFixed(2)
 }
