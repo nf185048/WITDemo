@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
 import { Divider, Stack, Typography, Link, Box } from '@mui/material'
 import { Item, CheckoutButton } from '../components'
 
 const Checkout: NextPage = () => {
 
   return (
-    <Stack className={styles.container} maxWidth="390px">
+    <Stack padding={1} maxWidth="390px">
       <Typography variant='h5'>Your Bag</Typography>
 
       <Box paddingBottom={2} paddingTop={2}>
@@ -16,7 +15,7 @@ const Checkout: NextPage = () => {
       </Box>
 
       <Box paddingBottom={2} >
-        {checkoutItems.map((checkoutItem, i) => {
+        {itemsToCheckout.map((checkoutItem, i) => {
           return (
             <Item
               key={i}
@@ -35,7 +34,7 @@ const Checkout: NextPage = () => {
   )
 }
 
-const checkoutItems = [
+const itemsToCheckout = [
   {
     id: 1,
     title: 'Iced Coffee',
@@ -44,7 +43,7 @@ const checkoutItems = [
   },
   {
     id: 2,
-    title: 'Iced Coffee',
+    title: 'Slingshot Cold Brew Can',
     description: '12 oz',
     price: 4.35
   },
@@ -54,13 +53,19 @@ const checkoutItems = [
     description: '16 oz, Oat Milk',
     price: 4.00
   },
+  {
+    id: 4,
+    title: 'Brew Dr. Kombucha',
+    description: '14oz, Organic Island Mango',
+    price: 2.50
+  },
 ]
 
 const calculatePrice = () => {
   let sum = 0
 
-  checkoutItems.forEach(checkoutItem => {
-    sum = checkoutItem.price
+  itemsToCheckout.forEach(item => {
+    sum = item.price
   })
 
   return sum.toFixed(2)

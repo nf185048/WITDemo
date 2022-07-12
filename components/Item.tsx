@@ -21,7 +21,7 @@ export const Item: FC<{ title: string, desc: string, price: string, id: number }
         <Typography>{price}</Typography>
       </Grid>
       <Grid item xs={2}>
-        <DeleteIcon />
+        <DeleteIcon htmlColor='#4D4D4D' />
       </Grid>
     </Grid>
   )
