@@ -59,14 +59,30 @@ const itemsToCheckout = [
     description: '14oz, Organic Island Mango',
     price: 2.50
   },
+  {
+    id: 5,
+    title: 'Brownies',
+    description: 'extra juicy delicious brownies yum',
+    price: 99.00
+  },
 ]
 
 const calculatePrice = () => {
   let sum = 0
 
   itemsToCheckout.forEach(item => {
-    sum = item.price
+    sum = sum + item.price
   })
+
+  /**
+   * sum = 0
+   * 
+   * sum = 0 + 6.85 = 6.85
+   * 
+   * sum = 0 + 6.85 + 4.35 = 11.20
+   * 
+   * 
+   */
 
   return sum.toFixed(2)
 }
